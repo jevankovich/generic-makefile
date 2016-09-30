@@ -44,4 +44,8 @@ clean:
 	@echo RM $(OBJ_DIR)
 	@rm -rf $(OBJ_DIR)
 
+.PHONY: run
+run: debug
+	./$(TARGET)
+
 -include $(DEPS)
