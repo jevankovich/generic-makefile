@@ -21,7 +21,7 @@ OBJS := $(addprefix $(OBJ_DIR),$(OBJS))
 
 $(TARGET): dirs $(OBJS) makefile
 	@echo LD $(TARGET)
-	@$(CXX) $(OBJS) $(LDFLAGS)
+	@$(CXX) $(OBJS) $(LDFLAGS) -o $(TARGET)
 
 .PHONY: debug
 debug: CFLAGS += $(DEBUG_CFLAGS)
@@ -29,11 +29,11 @@ debug: CXXFLAGS += $(DEBUG_CXXFLAGS)
 debug: $(TARGET)
 
 $(OBJ_DIR)%.c.o: $(SRC_DIR)%.c makefile
-	@echo CC $<
+	@echo CC $@
 	@$(CC) $(CFLAGS) -MMD -MP $< -c -o $@
 
 $(OBJ_DIR)%.cpp.o: $(SRC_DIR)%.cpp makefile
-	@echo CXX $<
+	@echo CXX $@
 	@$(CXX) $(CXXFLAGS) -MMD -MP $< -c -o $@
 
 .PHONY: clean
