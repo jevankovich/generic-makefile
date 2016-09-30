@@ -46,6 +46,6 @@ clean:
 
 .PHONY: run
 run: debug
-	./$(TARGET)
+	./$(TARGET) $(ARGS)
 
 -include $(DEPS)
