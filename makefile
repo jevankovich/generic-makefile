@@ -2,12 +2,12 @@ CC ?= gcc
 CXX ?= g++
 
 CFLAGS += --std=c99 -O3
-DEBUG_CFLAGS += -g -O0 -Wall -Werror -pedantic
+DEBUG_CFLAGS += -g -O0 -Wall -Werror -Wpedantic -Wextra
 
 CXXFLAGS += --std=c++14 -O3
-DEBUG_CXXFLAGS += -g -O0 -Wall -Werror -pedantic
+DEBUG_CXXFLAGS += -g -O0 -Wall -Werror -Wpedantic -Wextra
 
-LDFLAGS += 
+LDFLAGS +=
 
 SRC_DIR := src/
 OBJ_DIR := obj/
@@ -40,7 +40,7 @@ $(OBJ_DIR)%.cpp.o: $(SRC_DIR)%.cpp
 	@$(CXX) $(CXXFLAGS) -MMD -MP $< -c -o $@
 
 .PHONY: clean
-clean: 
+clean:
 	@echo RM $(OBJ_DIR)
 	@rm -rf $(OBJ_DIR)
 
